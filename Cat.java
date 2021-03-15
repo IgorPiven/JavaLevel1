@@ -1,18 +1,36 @@
-package Lesson6;
+package Lesson7;
 
-public class Cat extends Animal {
+public class Cat {
 
-    final int catLimitRun = 200;
+    private String name;
+    private String animalType = "Кот";
+    private int appetite;
+    private boolean catFullness;
+    Fullness fullness = new Fullness();
 
-    public Cat (String name) {
-        super (name);
-        super.animalRunDistanceLimit = catLimitRun;
-        super.animalType = "Кошка";
+
+    public Cat(String name, int appetite) {
+        this.name = name;
+        this.appetite = appetite;
+        this.catFullness = catFullness;
     }
 
-    @Override
-    public void swim(int distanceSwim) {
-        System.out.println("Кошка " + name + " не умеет плавать");
+    public void eat(Plate p) {
+
+        System.out.println(animalType + " " + name + " подошел к миске");
+
+        catFullness = fullness.isBellyStuffed(p, appetite, catFullness, name, animalType);
+
+
+        System.out.println(p.info());
+        System.out.println();
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getAppetite() {
+        return appetite;
+    }
 }
